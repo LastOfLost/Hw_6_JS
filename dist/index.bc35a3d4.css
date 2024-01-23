@@ -1,0 +1,48 @@
+.item-container {
+  background: #eee;
+  border-radius: 20px;
+  align-items: center;
+  width: 571px;
+  height: 801px;
+  display: flex;
+  position: relative;
+  top: 387px;
+  left: 41px;
+  box-shadow: 0 4px 4px #00000040;
+}
+
+.item-image {
+  width: 483px;
+  height: 418px;
+  top: 60px;
+}
+
+.item-name {
+  letter-spacing: 0;
+  text-align: left;
+  color: #444040;
+  font-family: Inter;
+  font-size: 36px;
+  font-weight: 800;
+  line-height: 44px;
+}
+
+.item-info {
+  letter-spacing: 0;
+  text-align: left;
+  color: #484747;
+  font-family: Inter;
+  font-size: 31px;
+  font-weight: 400;
+  line-height: 38px;
+}
+
+.item-button {
+  border-radius: 20px;
+  width: 266px;
+  height: 66px;
+  top: 699px;
+  left: 151px;
+}
+
+/*# sourceMappingURL=index.bc35a3d4.css.map */
