@@ -2586,120 +2586,16 @@ function addItemsToContainer(container, items) {
     return container.insertAdjacentHTML("beforeend", item);
   });
 }
-},{}],"db.json":[function(require,module,exports) {
-module.exports = {
-  "notebook": [{
-    "id": 4,
-    "name": "Ноутбук Lenovo ThinkPad",
-    "img": "https://files.foxtrot.com.ua/PhotoNew/img_0_58_20624_0_1_637858961122302930.jpg",
-    "brand": "Lenovo",
-    "price": 1199.99,
-    "screenSize": 15.6,
-    "processor": "Intel Core i5",
-    "ram": 8,
-    "storage": "512GB SSD",
-    "category": "Ноутбуки"
-  }, {
-    "id": 5,
-    "name": "Ноутбук ASUS VivoBook",
-    "img": "https://files.foxtrot.com.ua/PhotoNew/img_0_58_20624_0_1_637858961122302930.jpg",
-    "brand": "ASUS",
-    "price": 799.99,
-    "screenSize": 14,
-    "processor": "Intel Core i3",
-    "ram": 4,
-    "storage": "256GB SSD",
-    "category": "Ноутбуки"
-  }, {
-    "id": 6,
-    "name": "Ноутбук Apple MacBook Air",
-    "img": "https://files.foxtrot.com.ua/PhotoNew/img_0_58_20624_0_1_637858961122302930.jpg",
-    "brand": "Apple",
-    "price": 1299.99,
-    "screenSize": 13.3,
-    "processor": "Apple M1",
-    "ram": 8,
-    "storage": "256GB SSD",
-    "category": "Ноутбуки"
-  }, {
-    "id": 7,
-    "name": "Ноутбук MSI GS66 Stealth",
-    "img": "https://files.foxtrot.com.ua/PhotoNew/img_0_58_20624_0_1_637858961122302930.jpg",
-    "brand": "MSI",
-    "price": 1699.99,
-    "screenSize": 15.6,
-    "processor": "Intel Core i9",
-    "ram": 32,
-    "storage": "1TB SSD",
-    "category": "Ноутбуки"
-  }, {
-    "id": 8,
-    "name": "Ноутбук Razer Blade 15",
-    "img": "https://files.foxtrot.com.ua/PhotoNew/img_0_58_20624_0_1_637858961122302930.jpg",
-    "brand": "Razer",
-    "price": 1999.99,
-    "screenSize": 15.6,
-    "processor": "Intel Core i7",
-    "ram": 16,
-    "storage": "1TB SSD",
-    "category": "Ноутбуки"
-  }, {
-    "id": 9,
-    "name": "Ноутбук LG Gram 17",
-    "img": "https://files.foxtrot.com.ua/PhotoNew/img_0_58_20624_0_1_637858961122302930.jpg",
-    "brand": "LG",
-    "price": 1499.99,
-    "screenSize": 17,
-    "processor": "Intel Core i5",
-    "ram": 8,
-    "storage": "512GB SSD",
-    "category": "Ноутбуки"
-  }, {
-    "id": 10,
-    "name": "Ноутбук Huawei MateBook X Pro",
-    "img": "https://files.foxtrot.com.ua/PhotoNew/img_0_58_20624_0_1_637858961122302930.jpg",
-    "brand": "Huawei",
-    "price": 1299.99,
-    "screenSize": 13.9,
-    "processor": "Intel Core i7",
-    "ram": 16,
-    "storage": "512GB SSD",
-    "category": "Ноутбуки"
-  }, {
-    "id": 11,
-    "name": "Ноутбук Microsoft Surface Laptop 4",
-    "img": "https://files.foxtrot.com.ua/PhotoNew/img_0_58_20624_0_1_637858961122302930.jpg",
-    "brand": "Microsoft",
-    "price": 1399.99,
-    "screenSize": 13.5,
-    "processor": "Intel Core i5",
-    "ram": 8,
-    "storage": "256GB SSD",
-    "category": "Ноутбуки"
-  }, {
-    "name": "Ноутбук Test",
-    "img": "https://www.havan.com.br/media/catalog/product/cache/73a52df140c4d19dbec2b6c485ea6a50/n/o/notebook-lenovo-15-6-intel-core-i5-4g256gb-w11_795901.jpg",
-    "brand": "ASUS",
-    "price": 2000,
-    "screenSize": 14,
-    "processor": "AMD Ryzen 11119",
-    "ram": 312,
-    "storage": "21TB SSD",
-    "category": "Ноутбуки",
-    "id": 16
-  }]
-};
 },{}],"index.js":[function(require,module,exports) {
 "use strict";
 
 var _createItems = _interopRequireDefault(require("./utils/data-itemUtils/createItems"));
 var _addItemsToContainer = _interopRequireDefault(require("./utils/data-itemUtils/addItemsToContainer"));
-var _db = _interopRequireDefault(require("./db.json"));
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 var container = document.querySelector('.general-panel');
-var data = (0, _createItems.default)(_db.default.notebook);
+var data = (0, _createItems.default)(db.notebook);
 (0, _addItemsToContainer.default)(container, data);
-},{"./utils/data-itemUtils/createItems":"utils/data-itemUtils/createItems.js","./utils/data-itemUtils/addItemsToContainer":"utils/data-itemUtils/addItemsToContainer.js","./db.json":"db.json"}],"../node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
+},{"./utils/data-itemUtils/createItems":"utils/data-itemUtils/createItems.js","./utils/data-itemUtils/addItemsToContainer":"utils/data-itemUtils/addItemsToContainer.js"}],"../node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
 var OldModule = module.bundle.Module;
@@ -2724,7 +2620,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "58179" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "58071" + '/');
   ws.onmessage = function (event) {
     checkedAssets = {};
     assetsToAccept = [];
