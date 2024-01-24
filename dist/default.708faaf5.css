@@ -1,19 +1,25 @@
 
 main{
-    background-color: #F6F6F6;
-    width: 100vw;
-    height: 100vh;
     display: flex;
-    position: static;
+    justify-content: center;
 }
 
 .general-panel{
+    margin-top: 100px;
+    margin-bottom: 100px;
     width: 80vw;
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
     gap: 80px;
     justify-content: center;
+}
+
+.fixed-background{
+    position: fixed;
+    background-color: #F6F6F6;
+    width: 100vw;
+    height: 100vh;
 }
 
 *{

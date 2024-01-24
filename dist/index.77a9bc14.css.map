@@ -1,1 +1,0 @@
-{"mappings":"AACA;;;;AAIA","sources":["src/css/styles.css"],"sourcesContent":["\r\nmain{\r\n    background-color: #F6F6F6;\r\n}\r\n\r\n.general-panel{\r\n    width: 80vw;\r\n    height: 100%;\r\n}"],"names":[],"version":3,"file":"index.77a9bc14.css.map","sourceRoot":"/__parcel_source_root/"}

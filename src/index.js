@@ -1,4 +1,5 @@
-import {createItems, addItemsToContainer} from './utils/data-itemUtils';
+import createItems from './utils/data-itemUtils/createItems';
+import addItemsToContainer from './utils/data-itemUtils/addItemsToContainer';
 import db from './db.json';
 
 const container = document.querySelector('.general-panel');

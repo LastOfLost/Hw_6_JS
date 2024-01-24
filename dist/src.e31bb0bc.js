@@ -2454,21 +2454,35 @@ var templateFunction = _handlebars.default.template({
         }
         return undefined;
       };
-    return "\r\n<div class=\"item-container\">\r\n    <div class=\"item-image\" style=\"background-image: url(" + alias4((helper = (helper = lookupProperty(helpers, "img") || (depth0 != null ? lookupProperty(depth0, "img") : depth0)) != null ? helper : alias2, _typeof(helper) === alias3 ? helper.call(alias1, {
+    return "\r\n<div class=\"item-container\">\r\n    <img class=\"item-image\" src=\"" + alias4((helper = (helper = lookupProperty(helpers, "img") || (depth0 != null ? lookupProperty(depth0, "img") : depth0)) != null ? helper : alias2, _typeof(helper) === alias3 ? helper.call(alias1, {
       "name": "img",
       "hash": {},
       "data": data,
       "loc": {
         "start": {
           "line": 3,
-          "column": 57
+          "column": 33
         },
         "end": {
           "line": 3,
-          "column": 64
+          "column": 40
         }
       }
-    }) : helper)) + ");\"></div>\r\n    <p class=\"item-name\">" + alias4((helper = (helper = lookupProperty(helpers, "name") || (depth0 != null ? lookupProperty(depth0, "name") : depth0)) != null ? helper : alias2, _typeof(helper) === alias3 ? helper.call(alias1, {
+    }) : helper)) + "\" alt=\"Notebook_" + alias4((helper = (helper = lookupProperty(helpers, "id") || (depth0 != null ? lookupProperty(depth0, "id") : depth0)) != null ? helper : alias2, _typeof(helper) === alias3 ? helper.call(alias1, {
+      "name": "id",
+      "hash": {},
+      "data": data,
+      "loc": {
+        "start": {
+          "line": 3,
+          "column": 56
+        },
+        "end": {
+          "line": 3,
+          "column": 62
+        }
+      }
+    }) : helper)) + "\"></img>\r\n    <p class=\"item-name\">" + alias4((helper = (helper = lookupProperty(helpers, "name") || (depth0 != null ? lookupProperty(depth0, "name") : depth0)) != null ? helper : alias2, _typeof(helper) === alias3 ? helper.call(alias1, {
       "name": "name",
       "hash": {},
       "data": data,
@@ -2529,39 +2543,50 @@ var templateFunction = _handlebars.default.template({
   "useData": true
 });
 var _default = exports.default = templateFunction;
-},{"handlebars/dist/handlebars.runtime":"../node_modules/handlebars/dist/handlebars.runtime.js"}],"utils/data-itemUtils.js":[function(require,module,exports) {
+},{"handlebars/dist/handlebars.runtime":"../node_modules/handlebars/dist/handlebars.runtime.js"}],"utils/data-itemUtils/createItem.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.addItemsToContainer = addItemsToContainer;
-exports.createItem = createItem;
-exports.createItems = createItems;
-var _item = _interopRequireDefault(require("../templates/item.hbs"));
+exports.default = createItem;
+var _item = _interopRequireDefault(require("../../templates/item.hbs"));
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 function createItem(data) {
-  var item = document.createElement('div');
-  var getData = (0, _item.default)(data);
-  item.innerHTML = getData;
-  return item;
+  return (0, _item.default)(data);
 }
+},{"../../templates/item.hbs":"templates/item.hbs"}],"utils/data-itemUtils/createItems.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = createItems;
+var _createItem = _interopRequireDefault(require("./createItem.js"));
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 function createItems(data) {
   if (!Array.isArray(data)) return;
   var items = [];
   data.forEach(function (item) {
-    items.push(createItem(item));
+    items.push((0, _createItem.default)(item));
   });
   return items;
 }
+},{"./createItem.js":"utils/data-itemUtils/createItem.js"}],"utils/data-itemUtils/addItemsToContainer.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = addItemsToContainer;
 function addItemsToContainer(container, items) {
   if (container === null) return;
   if (items == null || !Array.isArray(items) || items.length === 0) return;
   items.forEach(function (item) {
-    return container.appendChild(item);
+    return container.insertAdjacentHTML("beforeend", item);
   });
 }
-},{"../templates/item.hbs":"templates/item.hbs"}],"db.json":[function(require,module,exports) {
+},{}],"db.json":[function(require,module,exports) {
 module.exports = {
   "notebook": [{
     "id": 4,
@@ -2667,13 +2692,14 @@ module.exports = {
 },{}],"index.js":[function(require,module,exports) {
 "use strict";
 
-var _dataItemUtils = require("./utils/data-itemUtils");
+var _createItems = _interopRequireDefault(require("./utils/data-itemUtils/createItems"));
+var _addItemsToContainer = _interopRequireDefault(require("./utils/data-itemUtils/addItemsToContainer"));
 var _db = _interopRequireDefault(require("./db.json"));
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 var container = document.querySelector('.general-panel');
-var data = (0, _dataItemUtils.createItems)(_db.default.notebook);
-(0, _dataItemUtils.addItemsToContainer)(container, data);
-},{"./utils/data-itemUtils":"utils/data-itemUtils.js","./db.json":"db.json"}],"../node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
+var data = (0, _createItems.default)(_db.default.notebook);
+(0, _addItemsToContainer.default)(container, data);
+},{"./utils/data-itemUtils/createItems":"utils/data-itemUtils/createItems.js","./utils/data-itemUtils/addItemsToContainer":"utils/data-itemUtils/addItemsToContainer.js","./db.json":"db.json"}],"../node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
 var OldModule = module.bundle.Module;
@@ -2698,7 +2724,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "62936" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "58179" + '/');
   ws.onmessage = function (event) {
     checkedAssets = {};
     assetsToAccept = [];
